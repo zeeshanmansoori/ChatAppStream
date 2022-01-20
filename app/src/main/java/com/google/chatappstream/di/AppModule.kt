@@ -8,6 +8,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import io.getstream.chat.android.client.ChatClient
+import io.getstream.chat.android.livedata.ChatDomain
 import javax.inject.Singleton
 
 @Module
@@ -18,4 +19,11 @@ object AppModule {
     @Provides
     fun provideChatClient(@ApplicationContext context: Context) =
         ChatClient.Builder(BuildConfig.apiKey, context).build()
+
+    @Singleton
+    @Provides
+    fun provideChatDomain(
+        chatClient: ChatClient,
+        @ApplicationContext context: Context
+    ): ChatDomain =ChatDomain.Builder(chatClient, context).build()
 }

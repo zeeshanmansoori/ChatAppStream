@@ -1,7 +1,8 @@
-package com.google.chatappstream
+package com.google.chatappstream.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.google.chatappstream.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

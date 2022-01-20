@@ -8,6 +8,7 @@ import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.google.chatappstream.R
 import com.google.chatappstream.databinding.FragmentLoginBinding
@@ -25,6 +26,11 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        if (viewModel.currentUser() != null) {
+            navigateToChannels()
+        }
+
         binding.btnConfirm.setOnClickListener {
             setupConnectingUiState()
             viewModel.connectUser(binding.etUsername.text.toString())
@@ -43,7 +49,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
                 when (event) {
                     is LoginViewModel.LogInEvent.ErrorInputTooShort -> {
                         setupIdleUiState()
-                        binding.etUsername.error =getString(R.string.error_username_too_short)
+                        binding.etUsername.error = getString(R.string.error_username_too_short)
                     }
                     is LoginViewModel.LogInEvent.ErrorLogIn -> {
                         setupIdleUiState()
@@ -55,8 +61,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
                     }
                     is LoginViewModel.LogInEvent.Success -> {
                         setupIdleUiState()
-                        //val action = Action
-
+                        navigateToChannels()
                     }
                 }
             }
@@ -71,5 +76,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     private fun setupIdleUiState() {
         binding.progressBar.isVisible = false
         binding.btnConfirm.isEnabled = true
+    }
+
+    private fun navigateToChannels() {
+        val action = LoginFragmentDirections.actionLoginFragmentToChannelFragment()
+        findNavController().navigate(action)
     }
 }

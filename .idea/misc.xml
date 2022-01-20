@@ -3,8 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/zeeshan/AndroidStudioProjects/ChatAppStream/app/src/main/res/layout/fragment_channel.xml" value="0.28958333333333336" />
+        <entry key="..\:/Users/zeeshan/AndroidStudioProjects/ChatAppStream/app/src/main/res/layout/activity_main.xml" value="0.15520833333333334" />
+        <entry key="..\:/Users/zeeshan/AndroidStudioProjects/ChatAppStream/app/src/main/res/layout/fragment_channel.xml" value="0.19199999334161955" />
+        <entry key="..\:/Users/zeeshan/AndroidStudioProjects/ChatAppStream/app/src/main/res/layout/fragment_chat.xml" value="0.14583333333333334" />
         <entry key="..\:/Users/zeeshan/AndroidStudioProjects/ChatAppStream/app/src/main/res/layout/fragment_login.xml" value="0.10555555555555556" />
+        <entry key="..\:/Users/zeeshan/AndroidStudioProjects/ChatAppStream/app/src/main/res/layout/fragment_user_list.xml" value="0.2879999900124293" />
+        <entry key="..\:/Users/zeeshan/AndroidStudioProjects/ChatAppStream/app/src/main/res/layout/fragment_user_list_rcv.xml" value="0.1" />
       </map>
     </option>
   </component>
