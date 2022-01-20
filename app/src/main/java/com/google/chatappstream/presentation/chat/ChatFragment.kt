@@ -3,6 +3,7 @@ package com.google.chatappstream.presentation.chat
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -22,15 +23,17 @@ import io.getstream.chat.android.ui.message.list.viewmodel.factory.MessageListVi
 class ChatFragment : BaseFragment<FragmentChatBinding>() {
 
     private val args: ChatFragmentArgs by navArgs()
+    val factory by lazy { MessageListViewModelFactory(args.channelId) }
+    val messageListHeaderViewModel: MessageListHeaderViewModel by viewModels { factory }
+    val messageListViewModel: MessageListViewModel by activityViewModels { factory }
+    val messageInputViewModel: MessageInputViewModel by viewModels { factory }
+
     override val bindingInflater: (LayoutInflater) -> ViewBinding
         get() = FragmentChatBinding::inflate
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val factory = MessageListViewModelFactory(args.channelId)
-        val messageListHeaderViewModel: MessageListHeaderViewModel by viewModels { factory }
-        val messageListViewModel: MessageListViewModel by viewModels { factory }
-        val messageInputViewModel: MessageInputViewModel by viewModels { factory }
+
         messageListHeaderViewModel.bindView(binding.messageListHeaderView, viewLifecycleOwner)
         messageListViewModel.bindView(binding.messageListView, viewLifecycleOwner)
         messageInputViewModel.bindView(binding.messageInputView, viewLifecycleOwner)
@@ -43,5 +46,14 @@ class ChatFragment : BaseFragment<FragmentChatBinding>() {
             findNavController().navigateUp()
         }
 
+        binding.messageListView.setMessageLongClickListener {
+            val btmsheet = ChatMessageLongClickBtmSheetDialogFragment.getInstance(it)
+            btmsheet.show(childFragmentManager, null)
+
+        }
+
+
     }
+
+
 }

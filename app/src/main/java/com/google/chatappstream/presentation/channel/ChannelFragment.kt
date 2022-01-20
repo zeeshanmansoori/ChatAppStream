@@ -9,10 +9,13 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
+import com.getstream.sdk.chat.viewmodel.messages.MessageListViewModel
 import com.google.chatappstream.databinding.FragmentChannelBinding
 import com.google.chatappstream.util.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 import io.getstream.chat.android.client.models.Filters
+import io.getstream.chat.android.ui.channel.list.ChannelListView
+import io.getstream.chat.android.ui.channel.list.adapter.viewholder.SwipeViewHolder
 import io.getstream.chat.android.ui.channel.list.header.viewmodel.ChannelListHeaderViewModel
 import io.getstream.chat.android.ui.channel.list.header.viewmodel.bindView
 import io.getstream.chat.android.ui.channel.list.viewmodel.ChannelListViewModel
@@ -71,6 +74,7 @@ class ChannelFragment :
             findNavController().navigate(action)
         }
 
+
         binding.channelListView.setChannelItemClickListener {
             val action = ChannelFragmentDirections.actionChannelFragmentToChatFragment(it.cid)
             findNavController().navigate(action)
@@ -82,4 +86,8 @@ class ChannelFragment :
     private fun showToast(msg: String) {
         Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
     }
+
+
+
+
 }
