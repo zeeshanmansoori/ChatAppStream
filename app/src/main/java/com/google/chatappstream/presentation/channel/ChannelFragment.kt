@@ -1,8 +1,10 @@
 package com.google.chatappstream.presentation.channel
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -52,12 +54,15 @@ class ChannelFragment :
 
         binding.channelListHeaderView.setOnUserAvatarClickListener {
             viewModel.logout()
+
             findNavController().navigateUp()
         }
 
         binding.channelListView.setChannelDeleteClickListener {
+            Log.d("zeeshan", "onViewCreated: channel ${it.cid} $it")
             lifecycleScope.launch {
-                viewModel.deleteChannel(it.cid)
+                viewModel.deleteChannel(it.id)
+                showToast("channel deleted")
             }
         }
 
@@ -72,5 +77,9 @@ class ChannelFragment :
         }
 
 
+    }
+
+    private fun showToast(msg: String) {
+        Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
     }
 }

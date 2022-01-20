@@ -1,5 +1,6 @@
 package com.google.chatappstream.presentation.channel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.getstream.chat.android.client.ChatClient
@@ -22,7 +23,11 @@ class ChannelViewModel @Inject constructor(
 
     suspend fun deleteChannel(channelId: String) {
         val channelClient = client.channel("messaging", channelId)
-        channelClient.delete().await()
+        val result = channelClient.delete().await()
+        if (result.isSuccess)
+            Log.d("zeeshan", "deleteChannel: deleted id $channelId")
+        else if (result.isError)
+            Log.d("zeeshan", "deleteChannel: not deleted id ${result.error()}")
 
     }
 

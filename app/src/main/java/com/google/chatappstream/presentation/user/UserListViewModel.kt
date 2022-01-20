@@ -40,7 +40,7 @@ class UserListViewModel @Inject constructor(
         val result = client.createChannel(
             channelType = "messaging",
             members = listOf(client.getCurrentUser()!!.id, selectedUser.id),
-            extraData = mapOf("channelName" to selectedUser.name)
+            extraData = mapOf("name" to selectedUser.id)
         ).await()
 
         if (result.isError)
