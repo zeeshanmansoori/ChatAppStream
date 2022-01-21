@@ -94,7 +94,7 @@ class ChatFragment : BaseFragment<FragmentChatBinding>() {
                 CHAT_VIEW_HOLDER_RIGHT_TYPE
 
             } else if (item is MessageListItem.MessageItem &&
-                item.isMine &&
+                item.isTheirs &&
                 item.message.attachments.isEmpty() &&
                 item.message.createdAt.isLessThenDayAgo()
             ) {
