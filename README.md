@@ -31,6 +31,7 @@ Chatting app (getstream.io)
 ### Chat actions :
  - has option to delete message.
  - has option to mark star the message.
+   (partially broken)
 
 | <img src="assets/m_a.jpg" width="200"/> |
 | --------|
