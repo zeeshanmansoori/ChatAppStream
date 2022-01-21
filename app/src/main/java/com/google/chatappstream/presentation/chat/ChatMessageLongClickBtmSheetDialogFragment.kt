@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.lifecycleScope
 import com.getstream.sdk.chat.adapter.MessageListItem
 import com.getstream.sdk.chat.viewmodel.messages.MessageListViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -14,6 +13,8 @@ import com.google.chatappstream.util.log
 import com.google.chatappstream.util.userList
 import dagger.hilt.android.AndroidEntryPoint
 import io.getstream.chat.android.client.ChatClient
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -34,6 +35,7 @@ class ChatMessageLongClickBtmSheetDialogFragment : BottomSheetDialogFragment() {
     private var _binding: ChatMsgLongClickBtmSheetBinding? = null
     private val binding get() = _binding!!
     private var globalMsg: MessageListItem.MessageItem? = null
+     var star = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -69,7 +71,6 @@ class ChatMessageLongClickBtmSheetDialogFragment : BottomSheetDialogFragment() {
     }
 
     private fun markUnMarkStar(): Boolean {
-        var star = false
         kotlin.runCatching {
 
             val userId = chatClient.getCurrentUser()?.id!!
@@ -87,11 +88,9 @@ class ChatMessageLongClickBtmSheetDialogFragment : BottomSheetDialogFragment() {
                 extraData = mutableMapOf(Constants.STAR_BY_USERS to newLs)
             }
 
-            (parentFragment as ChatFragment).apply {
-                lifecycleScope.launch {
-                    val result = chatClient.updateMessage(msg)
-                }
-            }
+            chatClient.updateMessage(msg).enqueue()
+        }.onFailure {
+            log("error markUnMarkStar $star \n $it")
         }
 
         return !star

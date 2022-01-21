@@ -4,11 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.getstream.sdk.chat.adapter.MessageListItem
 import com.google.chatappstream.databinding.ChatListRcvLeftBinding
-import com.google.chatappstream.databinding.ChatListRcvRightBinding
 import com.google.chatappstream.util.isStar
-
 import io.getstream.chat.android.ui.message.list.adapter.BaseMessageItemViewHolder
 import io.getstream.chat.android.ui.message.list.adapter.MessageListItemPayloadDiff
+import kotlinx.coroutines.coroutineScope
 
 class ChatViewHolderLeft(
     private val msgItemClickListener: MyMessageItemClickListener,

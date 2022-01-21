@@ -51,7 +51,9 @@
             android:layout_height="16dp"
             android:layout_gravity="start|bottom"
             android:button="@drawable/star_selector"
-            android:gravity="start|bottom" />
+            android:gravity="start|bottom"
+            android:enabled="false"
+            />
 
     </com.google.android.material.card.MaterialCardView>
 
