@@ -35,7 +35,9 @@ Chatting app (getstream.io)
 | <img src="assets/m_a.jpg" width="200"/> |
 | --------|
 
-
+### Demo
+| <img src="assets/demo.gif" width="200"/> |
+| --------|
 
 
 
