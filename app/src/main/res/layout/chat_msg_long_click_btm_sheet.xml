@@ -37,7 +37,7 @@
         android:id="@+id/start_msg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableStart="@drawable/ic_star_checked"
+        android:drawableStart="@drawable/ic_star_checked_24"
         android:drawablePadding="20dp"
         android:gravity="center_vertical"
         android:paddingHorizontal="30dp"
@@ -53,6 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:background="@color/black"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/delete_msg" />

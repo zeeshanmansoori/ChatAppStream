@@ -3,7 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/zeeshan/AndroidStudioProjects/ChatAppStream/app/src/main/res/drawable/ic_bin.xml" value="0.17135416666666667" />
+        <entry key="..\:/Users/zeeshan/AndroidStudioProjects/ChatAppStream/app/src/main/res/drawable/ic_star_checked.xml" value="0.30572916666666666" />
+        <entry key="..\:/Users/zeeshan/AndroidStudioProjects/ChatAppStream/app/src/main/res/drawable/ic_star_checked_24.xml" value="0.17135416666666667" />
+        <entry key="..\:/Users/zeeshan/AndroidStudioProjects/ChatAppStream/app/src/main/res/drawable/ic_start_un_checked.xml" value="0.30572916666666666" />
+        <entry key="..\:/Users/zeeshan/AndroidStudioProjects/ChatAppStream/app/src/main/res/drawable/star_selector.xml" value="0.1" />
         <entry key="..\:/Users/zeeshan/AndroidStudioProjects/ChatAppStream/app/src/main/res/layout/activity_main.xml" value="0.15520833333333334" />
+        <entry key="..\:/Users/zeeshan/AndroidStudioProjects/ChatAppStream/app/src/main/res/layout/chat_list_rcv.xml" value="0.2879999900124293" />
+        <entry key="..\:/Users/zeeshan/AndroidStudioProjects/ChatAppStream/app/src/main/res/layout/chat_list_rcv_left.xml" value="0.28958333333333336" />
+        <entry key="..\:/Users/zeeshan/AndroidStudioProjects/ChatAppStream/app/src/main/res/layout/chat_list_rcv_right.xml" value="0.26296296296296295" />
         <entry key="..\:/Users/zeeshan/AndroidStudioProjects/ChatAppStream/app/src/main/res/layout/chat_msg_long_click_btm_sheet.xml" value="0.21818181061547676" />
         <entry key="..\:/Users/zeeshan/AndroidStudioProjects/ChatAppStream/app/src/main/res/layout/fragment_channel.xml" value="0.19199999334161955" />
         <entry key="..\:/Users/zeeshan/AndroidStudioProjects/ChatAppStream/app/src/main/res/layout/fragment_chat.xml" value="0.14583333333333334" />
