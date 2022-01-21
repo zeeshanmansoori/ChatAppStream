@@ -52,7 +52,7 @@ class ChatMessageLongClickBtmSheetDialogFragment : BottomSheetDialogFragment() {
                 log("globalMsg $globalMsg")
                 deleteMsg()
             }
-            startMsg.setOnClickListener { }
+            startMsg.setOnClickListener { markUnMarkStar() }
         }
     }
 

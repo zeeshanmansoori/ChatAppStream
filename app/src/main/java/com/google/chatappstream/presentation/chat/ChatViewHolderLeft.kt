@@ -10,11 +10,11 @@ import com.google.chatappstream.util.isStar
 import io.getstream.chat.android.ui.message.list.adapter.BaseMessageItemViewHolder
 import io.getstream.chat.android.ui.message.list.adapter.MessageListItemPayloadDiff
 
-class ChatViewHolderRight(
+class ChatViewHolderLeft(
     private val msgItemClickListener: MyMessageItemClickListener,
     private val userId: String,
     parentView: ViewGroup,
-    private val binding: ChatListRcvRightBinding = ChatListRcvRightBinding.inflate(
+    private val binding: ChatListRcvLeftBinding = ChatListRcvLeftBinding.inflate(
         LayoutInflater.from(
             parentView.context
         ),
@@ -29,5 +29,6 @@ class ChatViewHolderRight(
         binding.root.setOnLongClickListener { msgItemClickListener.onMessageLongClick(data) }
         binding.textLabel.text = data.message.text
         binding.starAction.isChecked = data.isStar(userId)
+
     }
 }

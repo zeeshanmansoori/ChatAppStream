@@ -92,9 +92,16 @@ class ChatFragment : BaseFragment<FragmentChatBinding>() {
                 item.message.createdAt.isLessThenDayAgo()
             ) {
                 CHAT_VIEW_HOLDER_RIGHT_TYPE
-            } else {
+
+            } else if (item is MessageListItem.MessageItem &&
+                item.isMine &&
+                item.message.attachments.isEmpty() &&
+                item.message.createdAt.isLessThenDayAgo()
+            ) {
                 CHAT_VIEW_HOLDER_LEFT_TYPE
-            }
+
+            } else super.getItemViewType(item)
+
         }
 
         private fun Date?.isLessThenDayAgo(): Boolean {
@@ -118,7 +125,7 @@ class ChatFragment : BaseFragment<FragmentChatBinding>() {
 
         companion object {
             private const val CHAT_VIEW_HOLDER_RIGHT_TYPE = 56
-            private const val CHAT_VIEW_HOLDER_LEFT_TYPE = 55
+            private const val CHAT_VIEW_HOLDER_LEFT_TYPE = 59
         }
 
 
