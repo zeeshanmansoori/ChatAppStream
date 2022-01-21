@@ -116,11 +116,15 @@ class ChatFragment : BaseFragment<FragmentChatBinding>() {
             parentView: ViewGroup,
             viewType: Int,
         ): BaseMessageItemViewHolder<out MessageListItem> {
-            return if (viewType == CHAT_VIEW_HOLDER_RIGHT_TYPE) {
-                ChatViewHolderRight(listener, userId, parentView)
-            } else if (viewType == CHAT_VIEW_HOLDER_RIGHT_TYPE) {
-                ChatViewHolderLeft(listener, userId, parentView)
-            } else super.createViewHolder(parentView, viewType)
+            return when (viewType) {
+                CHAT_VIEW_HOLDER_RIGHT_TYPE -> {
+                    ChatViewHolderRight(listener, userId, parentView)
+                }
+                CHAT_VIEW_HOLDER_LEFT_TYPE -> {
+                    ChatViewHolderLeft(listener, userId, parentView)
+                }
+                else -> super.createViewHolder(parentView, viewType)
+            }
         }
 
         companion object {
