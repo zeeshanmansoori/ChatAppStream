@@ -25,7 +25,7 @@ Chatting app (getstream.io)
 ### Chat:
 - Chat Screen for direct messaging.
 
-| <img src="assets/Chat.jpg" width="200"/> |
+| <img src="assets/chat.jpg" width="200"/> |
 | --------|
 
 ### Chat actions :
